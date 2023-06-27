@@ -1,0 +1,160 @@
+.main-image::before {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(130, 19, 40, 0.5);
+  z-index: 1;
+  animation: pulse 2.5s infinite ease-out;
+  top: 31%;
+  left: 37%;
+}
+
+.main-image::after {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 1px solid rgba(130, 19, 40, 0.5);
+  z-index: 1;
+  animation: pulse 2.5s infinite ease-out;
+  animation-delay: 0.5s;
+  top: 31%;
+  left: 37%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  35% {
+    transform: scale(.35);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    transform: scale(4.3);
+    opacity: 0;
+  }
+}
+
+
+.strawberry {
+  animation: bounce 2s linear infinite;
+
+}
+
+.strawberry2 {
+  animation: bounce 4s linear infinite;
+}
+
+
+
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-30px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes popup {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.choice-item:hover .choice-item-image {
+  transform: scale(1.2);
+}
+
+.navigation ul li:hover {
+  border-bottom: 1px solid rgb(119, 11, 29);
+}
+
+.btn:hover {
+  box-shadow: 0 5px 9px 1px rgba(130, 19, 40, 0.5);
+}
+
+.advantages-item:hover .advantages-item-image{
+  background: #eba8b1;
+}
+
+.advantages-item:hover .advantages-item-number{
+  color: rgb(130, 19, 40);
+}
+
+.present:hover .present-block{
+  box-shadow: 0 0 12.6px 2.4px rgba(130, 19, 40, 0.5);
+}
+
+.present:hover .popup {
+  position: absolute;
+  right: 90px;
+  bottom: 0;
+}
+
+.popup {
+  border-radius: 10px;
+  border: 2px solid rgb(119, 10, 29);
+  background-color: rgb(254, 239, 238);
+  width: 172px;
+  height: 64px;
+  padding: 0 15px;
+  text-align: center;
+  /*display: none;*/
+  font-size: 15px;
+  font-family: "Gilroy-Medium", sans-serif;
+  color: rgb(119, 10, 29);
+  line-height: 1.333;
+  margin-right: 10px;
+  transition: .6s;
+  position: absolute;
+  bottom: -140px;
+  right: 90px;
+  animation: present 1s linear;
+
+}
+
+.present-block:hover::after .popup  {
+  content: '';
+  animation: popup 2s linear ;
+
+  right: 90px;
+  bottom: 10px;
+}
+
+.present:hover .popup{
+  transform: translateY(-15px);
+}
+
+.triangle {
+  position: relative;
+  rotate: 45deg;
+  border: none;
+  box-sizing: border-box;
+  border-right: 2px solid rgb(119, 10, 29);
+  border-top: 2px solid rgb(119, 10, 29);
+  background: rgb(254, 239, 238);
+  width: 13px;
+  height: 13px;
+  right: -148px;
+  bottom: -20px;
+}
+
