@@ -93,6 +93,7 @@ body {
 .main {
   background: #eba8b1;
   padding: 126px 0 108px 0;
+  overflow: hidden;
 
 }
 
