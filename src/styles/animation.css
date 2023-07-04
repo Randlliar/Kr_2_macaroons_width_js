@@ -7,8 +7,8 @@
   border: 1px solid rgba(130, 19, 40, 0.5);
   z-index: 1;
   animation: pulse 2.5s infinite ease-out;
-  top: 13%;
-  left: 63%;
+  top: 11%;
+  left: 61%;
 }
 
 .main-image::after {
@@ -21,8 +21,8 @@
   z-index: 1;
   animation: pulse 2.5s infinite ease-out;
   animation-delay: 0.5s;
-  top: 13%;
-  left: 63%;
+  top: 11%;
+  left: 61%;
 }
 
 @keyframes pulse {

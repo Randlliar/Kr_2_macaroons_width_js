@@ -19,9 +19,9 @@ $(phone).inputmask({"mask": "+375 (99) 999-99-99"});
 $('#order-button').on('click', function (e) {
   let choiceInput = $('#choice-input');
   let nameInput = $('#name-input');
-let orderFrom = $('#order-content');
-let orderAnswer = $('#order-answer');
-let orderInput = $('.order-input');
+  let orderFrom = $('#order-content');
+  let orderAnswer = $('#order-answer');
+  let orderInput = $('.order-input');
 
   let hasError = false;
 
@@ -53,11 +53,11 @@ let orderInput = $('.order-input');
     $.ajax({
       method: "POST",
       url: "https://testologia.site/checkout",
-      data: { name: nameInput.val(), product: choiceInput.val(), phone: phone.val() }
+      data: {name: nameInput.val(), product: choiceInput.val(), phone: phone.val()}
     })
-      .done(function( msg ) {
+      .done(function (msg) {
         loader.hide();
-        if (msg.success === 1 ) {
+        if (msg.success === 1) {
           orderFrom.css('display', 'none');
           orderAnswer.css('display', 'flex');
         } else {
@@ -67,3 +67,5 @@ let orderInput = $('.order-input');
   }
   e.preventDefault();
 })
+
+
