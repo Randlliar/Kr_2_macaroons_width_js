@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Macaroons</title>
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet/less" href="styles/style.less">
+  <link rel="stylesheet" href="styles/side_blocks.css">
   <link rel="stylesheet" href="styles/animation.css">
-  <link rel="stylesheet" href="styles/adaptive.css">
-
+<!--  <link rel="stylesheet" href="styles/adaptive.less">-->
+<!--  <link rel="stylesheet/less" href="styles/adaptive.less">-->
 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -220,7 +221,7 @@
     <div class="order-image">
       <img src="images/order-macaroons.png" alt="Macaroons">
     </div>
-    <div class="order-content">
+    <div class="order-content" id="order-content">
       <div>
         <img src="images/strawberry2.png" alt="Strawberry" class="strawberry2">
       </div>
@@ -228,22 +229,25 @@
       <p class="order-content-description">
         Выберите понравившийся макарун, заполните форму и ожидайте звонка нашего пекаря!
       </p>
-      <form class="order-contacts">
 
-      <div class="order-wish-title">Ваш выбор</div>
-        <input type="text" class="order-input" placeholder="Напишите, что хотите заказать..." required>
+      <form class="order-contacts">
+        <div class="order-wish-title">Ваш выбор</div>
+        <input type="text" class="order-input" placeholder="Напишите, что хотите заказать..." id="choice-input">
+        <div class="text-error">Введите ваш заказ!</div>
         <div class="order-contacts-title">Заполните данные для заказа</div>
-        <input type="text" class="order-input" placeholder="Ваше имя" required>
-        <input type="tel" class="order-input" placeholder="+375 (__) ___ - __ - __" required>
-        <button class="btn order-btn">Оформить заказ</button>
+        <input type="text" class="order-input" placeholder="Ваше имя" id="name-input">
+        <div class="text-error">Введите ваше имя!</div>
+        <input type="text" class="order-input" placeholder="+375 (__) ___ - __ - __" id="phone">
+        <div class="text-error">Введите ваш телефон!</div>
+        <button class="btn order-btn" id="order-button">Оформить заказ</button>
       </form>
     </div>
+    <div class="order-answer" id="order-answer">Спасибо за Ваш заказ. Мы скоро свяжемся с Вами!</div>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container">
-
     <div>
       <a href="#" class="logo">
         Macaroons
@@ -252,8 +256,10 @@
     </div>
     <div class="instagram">
       <a href="#" class="instagram-image">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35" viewBox="0 0 35 35">
-          <image id="instagram_1_копия" data-name="instagram" width="35" height="35" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAADcklEQVRYhb2Yz4uWVRTHPzOKWtLGciadEUQQcRJ/gBHqNCOKFhlRkItiQFwoShs31kJaieI2zRmmFi7Uf8BNovgrsW2Zk5Y5RoNovk2DOaHMKPONM9yB4/F557np+/aFy3ufc899zvc959xz730aJFGARmAtsB54A2gBmpPc8AIwrWhiwijwMPXHgDvAANAHnATOJfmTMDKhbZbUr/ripqSPo23/MEVSb51JRByTNG2Cgw/TV8A25zZz4xngLHAdGALuF7h3OIVsekG4LJyzgFeBZcBGYFHQOQ50jfcSq/cD40uSFhWEsBZtg6Qbwd5HE2FqlPSLG/jOu65Obbak687mr8bDBt50wjFJbXUg8Kmk25L6JLUnWXvwTocJDzjB+ToQWRiM9rmx751871RghUumU5PUjghL2M6UmDOBCtAPnAdGnO7LYd4s1z8NLE/91wmx+yDjnzZJOizpfpXlOiypJ+mZ/lRJF934Z+5dW538KuGla0qIdEqqVCERMShpnSO0umCFvuPmDBFesLiEyGjQt4T/QdKp9DsWxkcdoaK21unei2TmV5n0SoFHvpQ0J+g1J7nHoAtZbKuehczBoLelJJxdQb+nit5ypzOSQ8YK4N9OpztzSXsPWVJPLyGjHDLr3bjlRGsmmeaQQ2+XkWmkHAudxk/Arcw6dBf40T0vLZuQQ6bJ9f/MJDKBiuu/WAsyw1WI5cDrV8r0c8hccf02oDWTyJwQmhu1IHMhHaoMDcDnmWT2JH2Sdy/Ugswj4Ih73g5sLZmzBfjEPR8Nm2cRRp+nAvcWLPPWVIc8KpNU4JVO76kKvKBkb3oQ9MfS+eSspCtV9qbO/7I3/eUEKzJ27bvKQ6WEiLV33ZuGGkPtmFcSV0vC14AvXFJHmPxQWnllSdvi+hU76f3mrg9LgBMlLxgEdgG7gY5UoZvSirEy8G26Ueagzen8bq7a71x1MXPfqVX72dneRzqBedgZ4/8g8law225Cu1Vec0K7Z8+uM5EWSQPOptlvmBh8L7DsLzkuPq9HBoI9s//EXbsb2BmS7lq6b19NRwK7bz8G/slIzhmpvQTMTcm6AVgc9HqBHeM9x3hKQfWsN75Odsc5FLnRXOZzqB6wu/2H0fZkX67WAJvSjW9B+qxhLs+FfTqx2mNh/WO8jsBl4Bvg0lOfVoB/AUfaqNKtLg37AAAAAElFTkSuQmCC"/>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"
+             viewBox="0 0 35 35">
+          <image id="instagram_1_копия" data-name="instagram" width="35" height="35"
+                 xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAADcklEQVRYhb2Yz4uWVRTHPzOKWtLGciadEUQQcRJ/gBHqNCOKFhlRkItiQFwoShs31kJaieI2zRmmFi7Uf8BNovgrsW2Zk5Y5RoNovk2DOaHMKPONM9yB4/F557np+/aFy3ufc899zvc959xz730aJFGARmAtsB54A2gBmpPc8AIwrWhiwijwMPXHgDvAANAHnATOJfmTMDKhbZbUr/ripqSPo23/MEVSb51JRByTNG2Cgw/TV8A25zZz4xngLHAdGALuF7h3OIVsekG4LJyzgFeBZcBGYFHQOQ50jfcSq/cD40uSFhWEsBZtg6Qbwd5HE2FqlPSLG/jOu65Obbak687mr8bDBt50wjFJbXUg8Kmk25L6JLUnWXvwTocJDzjB+ToQWRiM9rmx751871RghUumU5PUjghL2M6UmDOBCtAPnAdGnO7LYd4s1z8NLE/91wmx+yDjnzZJOizpfpXlOiypJ+mZ/lRJF934Z+5dW538KuGla0qIdEqqVCERMShpnSO0umCFvuPmDBFesLiEyGjQt4T/QdKp9DsWxkcdoaK21unei2TmV5n0SoFHvpQ0J+g1J7nHoAtZbKuehczBoLelJJxdQb+nit5ypzOSQ8YK4N9OpztzSXsPWVJPLyGjHDLr3bjlRGsmmeaQQ2+XkWmkHAudxk/Arcw6dBf40T0vLZuQQ6bJ9f/MJDKBiuu/WAsyw1WI5cDrV8r0c8hccf02oDWTyJwQmhu1IHMhHaoMDcDnmWT2JH2Sdy/Ugswj4Ih73g5sLZmzBfjEPR8Nm2cRRp+nAvcWLPPWVIc8KpNU4JVO76kKvKBkb3oQ9MfS+eSspCtV9qbO/7I3/eUEKzJ27bvKQ6WEiLV33ZuGGkPtmFcSV0vC14AvXFJHmPxQWnllSdvi+hU76f3mrg9LgBMlLxgEdgG7gY5UoZvSirEy8G26Ueagzen8bq7a71x1MXPfqVX72dneRzqBedgZ4/8g8law225Cu1Vec0K7Z8+uM5EWSQPOptlvmBh8L7DsLzkuPq9HBoI9s//EXbsb2BmS7lq6b19NRwK7bz8G/slIzhmpvQTMTcm6AVgc9HqBHeM9x3hKQfWsN75Odsc5FLnRXOZzqB6wu/2H0fZkX67WAJvSjW9B+qxhLs+FfTqx2mNh/WO8jsBl4Bvg0lOfVoB/AUfaqNKtLg37AAAAAElFTkSuQmCC"/>
         </svg>
       </a>
       <div class="instagram-description">Мы в Instagram</div>
@@ -272,22 +278,29 @@
         и получите подарок!</span>
   </div>
   <div class="present-block"><img src="images/present.png" alt="present"></div>
+</div>
 
+<div class="loader">
+  <div class="lds-grid">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
 
 </div>
 
-<script>
-  document.getElementById('burger').onclick = function () {
-    document.getElementById('menu').classList.add('open');
-  }
 
-  document.querySelectorAll('#menu *').forEach((item) => {
-    item.onclick = () => {
-      document.getElementById('menu').classList.remove('open');
-    }
-  })
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/less/dist/less.min.js"></script>
+<script src="node_modules/inputmask/dist/jquery.inputmask.min.js"></script>
 
-</script>
+<script src="index.js"></script>
 
 </body>
 </html>

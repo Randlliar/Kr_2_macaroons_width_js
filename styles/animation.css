@@ -7,8 +7,8 @@
   border: 1px solid rgba(130, 19, 40, 0.5);
   z-index: 1;
   animation: pulse 2.5s infinite ease-out;
-  top: 31%;
-  left: 37%;
+  top: 13%;
+  left: 63%;
 }
 
 .main-image::after {
@@ -21,8 +21,8 @@
   z-index: 1;
   animation: pulse 2.5s infinite ease-out;
   animation-delay: 0.5s;
-  top: 31%;
-  left: 37%;
+  top: 13%;
+  left: 63%;
 }
 
 @keyframes pulse {
@@ -30,9 +30,9 @@
     transform: scale(0);
     opacity: 1;
   }
-  35% {
+  40% {
     transform: scale(.35);
-    opacity: 1;
+    opacity: 0;
   }
   70% {
     opacity: 1;
