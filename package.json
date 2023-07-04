@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "inputmask": "^5.0.8",
+    "jquery": "^3.7.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-less": "^5.0.0"
+  }
+}
