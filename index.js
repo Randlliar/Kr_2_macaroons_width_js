@@ -22,18 +22,17 @@ $('#order-button').on('click', function (e) {
   let orderFrom = $('#order-content');
   let orderAnswer = $('#order-answer');
   let orderInput = $('.order-input');
+  let color = orderInput.css('border-color', '#821328FF');
 
   let hasError = false;
 
   $('.text-error').hide();
-
+  orderInput.css('border-color', '#blue');
 
   if (!choiceInput.val()) {
-    choiceInput.css('border-color', 'red');
+    orderInput.css('border-color', 'red');
     choiceInput.next().show();
     hasError = true;
-  } else {
-    choiceInput.css('border-color', '#821328FF');
   }
   if (!nameInput.val()) {
     orderInput.css('border-color', 'red');
@@ -57,11 +56,12 @@ $('#order-button').on('click', function (e) {
     })
       .done(function (msg) {
         loader.hide();
-        if (msg.success === 1) {
+        if (msg.success !== 1) {
+          alert('Возникла ошибка при оформлении заказа, позвоните нам и сделайте заказ');
+          // location.reload();
+        } else {
           orderFrom.css('display', 'none');
           orderAnswer.css('display', 'flex');
-        } else {
-          alert('Возникла ошибка при оформлении заказа, позвоните нам и сделайте заказ');
         }
       });
   }
